@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>shtimung — logo lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c12; --surface: rgba(255,255,255,.04); --border: rgba(255,255,255,.09);
+    --text: #eef0f6; --dim: #9aa1b5; --amber: #ffb45c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--bg); color: var(--text); font-family: Inter, sans-serif; padding: 48px 32px 96px; }
+  h1 { font-family: "Space Grotesk"; font-size: 1.6rem; margin-bottom: 6px; }
+  .sub { color: var(--dim); margin-bottom: 40px; font-size: .95rem; }
+  .variant { border: 1px solid var(--border); border-radius: 20px; padding: 28px; margin-bottom: 28px; background: var(--surface); }
+  .variant h2 { font-family: "Space Grotesk"; font-size: 1.1rem; margin-bottom: 4px; }
+  .variant p { color: var(--dim); font-size: .88rem; margin-bottom: 22px; max-width: 60em; }
+  .row { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .swatch { display: flex; flex-direction: column; gap: 8px; align-items: center; font-size: .75rem; color: var(--dim); }
+  .avatar { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; border: 1px solid var(--border); }
+  .avatar.light { border-color: #ddd; }
+  .mid { width: 64px; height: 64px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+  .fav { width: 32px; height: 32px; border-radius: 7px; overflow: hidden; border: 1px solid var(--border); }
+  svg { display: block; width: 100%; height: 100%; }
+  .igmock { display: flex; align-items: center; gap: 12px; background: #000; border: 1px solid var(--border); border-radius: 14px; padding: 12px 18px; }
+  .igmock .pic { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; }
+  .igmock .name { font-size: .85rem; font-weight: 600; }
+  .igmock .sub2 { font-size: .72rem; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<h1>shtimung — logo lab</h1>
+<p class="sub">Svaka varijanta: profilna (140px), app ikona (64px), favicon (32px), svijetla podloga i Instagram mockup. Boje: amber #ffb45c, tekst #eef0f6, pozadina #0a0c12.</p>
+
+<!-- ============ V1: TOČKA ============ -->
+<div class="variant">
+  <h2>V1 — Točka</h2>
+  <p>Ultra minimal: samo brand element, amber točka s glowom. Ista točka koja je već u wordmarku i "pali svjetla" na webu. Radi na svim veličinama, ali sam po sebi ne govori "shtimung" dok brand ne postane poznat.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="30" fill="#ffb45c" opacity=".12"/><circle cx="50" cy="50" r="19" fill="#ffb45c" opacity=".25"/><circle cx="50" cy="50" r="11" fill="#ffb45c"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="30" fill="#ffb45c" opacity=".12"/><circle cx="50" cy="50" r="19" fill="#ffb45c" opacity=".25"/><circle cx="50" cy="50" r="11" fill="#ffb45c"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="30" fill="#ffb45c" opacity=".12"/><circle cx="50" cy="50" r="19" fill="#ffb45c" opacity=".25"/><circle cx="50" cy="50" r="11" fill="#ffb45c"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><circle cx="50" cy="50" r="30" fill="#ffb45c" opacity=".18"/><circle cx="50" cy="50" r="19" fill="#ffb45c" opacity=".35"/><circle cx="50" cy="50" r="11" fill="#f59a2e"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="30" fill="#ffb45c" opacity=".12"/><circle cx="50" cy="50" r="19" fill="#ffb45c" opacity=".25"/><circle cx="50" cy="50" r="11" fill="#ffb45c"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V2: s. MONOGRAM ============ -->
+<div class="variant">
+  <h2>V2 — "s." monogram</h2>
+  <p>Malo "s" iz wordmarka + amber točka. Čitljivo, osobno, tipografski povezano s webom (Space Grotesk Bold). Klasičan monogram pristup.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="42" y="66" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="66" cy="62" r="6.5" fill="#ffb45c"/><circle cx="66" cy="62" r="12" fill="#ffb45c" opacity=".2"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="42" y="66" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="66" cy="62" r="6.5" fill="#ffb45c"/><circle cx="66" cy="62" r="12" fill="#ffb45c" opacity=".2"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="42" y="66" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="66" cy="62" r="6.5" fill="#ffb45c"/><circle cx="66" cy="62" r="12" fill="#ffb45c" opacity=".2"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="42" y="66" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#1a1d28" text-anchor="middle">s</text><circle cx="66" cy="62" r="6.5" fill="#f59a2e"/><circle cx="66" cy="62" r="12" fill="#f59a2e" opacity=".25"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="42" y="66" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="66" cy="62" r="6.5" fill="#ffb45c"/><circle cx="66" cy="62" r="12" fill="#ffb45c" opacity=".2"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V3: DIMMER ============ -->
+<div class="variant">
+  <h2>V3 — Dimmer</h2>
+  <p>Prsten kao dimmer/gumb za svjetlo: sivi ring, amber luk (razina "štimunga") i točka-indikator. Priča o svjetlu i kontroli bez ijednog slova. Djeluje "tech" i uredno na malim veličinama.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="26" fill="none" stroke="#2a3145" stroke-width="7"/><path d="M 50 24 A 26 26 0 1 1 26 58" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="7" fill="#ffb45c"/><circle cx="50" cy="50" r="13" fill="#ffb45c" opacity=".15"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="26" fill="none" stroke="#2a3145" stroke-width="7"/><path d="M 50 24 A 26 26 0 1 1 26 58" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="7" fill="#ffb45c"/><circle cx="50" cy="50" r="13" fill="#ffb45c" opacity=".15"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="26" fill="none" stroke="#2a3145" stroke-width="7"/><path d="M 50 24 A 26 26 0 1 1 26 58" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="7" fill="#ffb45c"/><circle cx="50" cy="50" r="13" fill="#ffb45c" opacity=".15"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><circle cx="50" cy="50" r="26" fill="none" stroke="#d8d4cc" stroke-width="7"/><path d="M 50 24 A 26 26 0 1 1 26 58" fill="none" stroke="#f59a2e" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="7" fill="#f59a2e"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><circle cx="50" cy="50" r="26" fill="none" stroke="#2a3145" stroke-width="7"/><path d="M 50 24 A 26 26 0 1 1 26 58" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="50" r="7" fill="#ffb45c"/><circle cx="50" cy="50" r="13" fill="#ffb45c" opacity=".15"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V4: DOM + TOČKA ============ -->
+<div class="variant">
+  <h2>V4 — Dom + točka</h2>
+  <p>Minimalni obris krova (dom) s amber točkom kao svjetlom unutra. Najdirektnija priča: svjetlo u domu. Rizik: kućica je najčešći motiv u smart home branši, manje distinktivno.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><path d="M 28 52 L 50 32 L 72 52" fill="none" stroke="#eef0f6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="58" r="7" fill="#ffb45c"/><circle cx="50" cy="58" r="13" fill="#ffb45c" opacity=".18"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><path d="M 28 52 L 50 32 L 72 52" fill="none" stroke="#eef0f6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="58" r="7" fill="#ffb45c"/><circle cx="50" cy="58" r="13" fill="#ffb45c" opacity=".18"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><path d="M 28 52 L 50 32 L 72 52" fill="none" stroke="#eef0f6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="58" r="7" fill="#ffb45c"/><circle cx="50" cy="58" r="13" fill="#ffb45c" opacity=".18"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><path d="M 28 52 L 50 32 L 72 52" fill="none" stroke="#1a1d28" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="58" r="7" fill="#f59a2e"/><circle cx="50" cy="58" r="13" fill="#f59a2e" opacity=".22"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><path d="M 28 52 L 50 32 L 72 52" fill="none" stroke="#eef0f6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="58" r="7" fill="#ffb45c"/><circle cx="50" cy="58" r="13" fill="#ffb45c" opacity=".18"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V5: SH LIGATURA ============ -->
+<div class="variant">
+  <h2>V5 — "sh" + točka</h2>
+  <p>Prva dva slova imena s točkom, kao skraćeni wordmark. Prepoznatljivije od samog "s", još uvijek čitljivo na 32px. Dobar kompromis između imena i znaka.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="64" font-family="Space Grotesk" font-weight="700" font-size="40" fill="#eef0f6" text-anchor="middle">sh</text><circle cx="72" cy="60" r="5.5" fill="#ffb45c"/><circle cx="72" cy="60" r="10" fill="#ffb45c" opacity=".2"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="64" font-family="Space Grotesk" font-weight="700" font-size="40" fill="#eef0f6" text-anchor="middle">sh</text><circle cx="72" cy="60" r="5.5" fill="#ffb45c"/><circle cx="72" cy="60" r="10" fill="#ffb45c" opacity=".2"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="64" font-family="Space Grotesk" font-weight="700" font-size="40" fill="#eef0f6" text-anchor="middle">sh</text><circle cx="72" cy="60" r="5.5" fill="#ffb45c"/><circle cx="72" cy="60" r="10" fill="#ffb45c" opacity=".2"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="44" y="64" font-family="Space Grotesk" font-weight="700" font-size="40" fill="#1a1d28" text-anchor="middle">sh</text><circle cx="72" cy="60" r="5.5" fill="#f59a2e"/><circle cx="72" cy="60" r="10" fill="#f59a2e" opacity=".25"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="64" font-family="Space Grotesk" font-weight="700" font-size="40" fill="#eef0f6" text-anchor="middle">sh</text><circle cx="72" cy="60" r="5.5" fill="#ffb45c"/><circle cx="72" cy="60" r="10" fill="#ffb45c" opacity=".2"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V6: š S AMBER KVAČICOM ============ -->
+<div class="variant">
+  <h2>V6 — "š" s amber kvačicom</h2>
+  <p>Bijelo "s", kvačica u amberu kao brand element. Priča: domena mora biti "sh", ali logo vraća š, ono što svi stvarno izgovaraju. Kvačica preuzima ulogu točke iz wordmarka.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 38 24 L 50 34 L 62 24" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 38 24 L 50 34 L 62 24" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 38 24 L 50 34 L 62 24" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#1a1d28" text-anchor="middle">s</text><path d="M 38 24 L 50 34 L 62 24" fill="none" stroke="#f59a2e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 38 24 L 50 34 L 62 24" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V7: LED KVAČICA ============ -->
+<div class="variant">
+  <h2>V7 — "š" s LED kvačicom</h2>
+  <p>Kvačica složena od tri LED točkice koje se "pale". Direktna veza na LED rasvjetu kao uslugu, a na webu bi se točkice mogle animirati (paljenje jedna po jedna).</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="37" cy="23" r="4.5" fill="#ffb45c" opacity=".55"/><circle cx="50" cy="32" r="4.5" fill="#ffb45c"/><circle cx="63" cy="23" r="4.5" fill="#ffb45c" opacity=".8"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="38" cy="24" r="4.5" fill="#ffb45c" opacity=".45"/><circle cx="50" cy="31" r="4.5" fill="#ffb45c"/><circle cx="62" cy="24" r="4.5" fill="#ffb45c" opacity=".75"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="38" cy="24" r="5.5" fill="#ffb45c" opacity=".45"/><circle cx="50" cy="31" r="5.5" fill="#ffb45c"/><circle cx="62" cy="24" r="5.5" fill="#ffb45c" opacity=".75"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#1a1d28" text-anchor="middle">s</text><circle cx="38" cy="24" r="4.5" fill="#f59a2e" opacity=".45"/><circle cx="50" cy="31" r="4.5" fill="#f59a2e"/><circle cx="62" cy="24" r="4.5" fill="#f59a2e" opacity=".75"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><circle cx="38" cy="24" r="4.5" fill="#ffb45c" opacity=".45"/><circle cx="50" cy="31" r="4.5" fill="#ffb45c"/><circle cx="62" cy="24" r="4.5" fill="#ffb45c" opacity=".75"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V8: KVAČICA-KROV ============ -->
+<div class="variant">
+  <h2>V8 — Kvačica-krov (ŝ)</h2>
+  <p>Kvačica okrenuta u krov: dom nad slovom "s". Dvostruka igra: dijakritika i kuća u jednom potezu. Tehnički je to cirkumfleks, ali priča je jasna: š + dom.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 36 34 L 50 22 L 64 34" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 36 34 L 50 22 L 64 34" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 36 34 L 50 22 L 64 34" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#1a1d28" text-anchor="middle">s</text><path d="M 36 34 L 50 22 L 64 34" fill="none" stroke="#f59a2e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="50" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 36 34 L 50 22 L 64 34" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+<!-- ============ V9: KROV + TOČKA ============ -->
+<div class="variant">
+  <h2>V9 — Krov + točka</h2>
+  <p>Finalni smjer: amber krov spušten uz slovo, točka-svjetlo s halo sjajem iza slova na baseline.</p>
+  <div class="row">
+    <div class="swatch"><div class="avatar"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 30 38 L 44 26 L 58 38" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="68" r="11" fill="#ffb45c" opacity=".2"/><circle cx="68" cy="68" r="6" fill="#ffb45c"/></svg></div>140px</div>
+    <div class="swatch"><div class="mid"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 30 38 L 44 26 L 58 38" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="68" r="11" fill="#ffb45c" opacity=".2"/><circle cx="68" cy="68" r="6" fill="#ffb45c"/></svg></div>64px</div>
+    <div class="swatch"><div class="fav"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 30 38 L 44 26 L 58 38" fill="none" stroke="#ffb45c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="68" r="12" fill="#ffb45c" opacity=".2"/><circle cx="68" cy="68" r="7" fill="#ffb45c"/></svg></div>32px</div>
+    <div class="swatch"><div class="avatar light"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#f4f2ee"/><text x="44" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#1a1d28" text-anchor="middle">s</text><path d="M 30 38 L 44 26 L 58 38" fill="none" stroke="#f59a2e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="68" r="11" fill="#f59a2e" opacity=".25"/><circle cx="68" cy="68" r="6" fill="#f59a2e"/></svg></div>svijetla</div>
+    <div class="igmock"><div class="pic"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#0a0c12"/><text x="44" y="72" font-family="Space Grotesk" font-weight="700" font-size="52" fill="#eef0f6" text-anchor="middle">s</text><path d="M 30 38 L 44 26 L 58 38" fill="none" stroke="#ffb45c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="68" r="11" fill="#ffb45c" opacity=".2"/><circle cx="68" cy="68" r="6" fill="#ffb45c"/></svg></div><div><div class="name">shtimung.hr</div><div class="sub2">Pametan dom po mjeri · Zagreb</div></div></div>
+  </div>
+</div>
+
+</body>
+</html>
