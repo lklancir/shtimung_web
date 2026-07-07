@@ -1,0 +1,17 @@
+# shtimung.hr — kanonski redirect + cache
+RewriteEngine On
+
+# sve na https://shtimung.hr (bez www)
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://shtimung.hr%{REQUEST_URI} [L,R=301]
+
+# cache statike (nema build hasheva, pa umjereno)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+</IfModule>

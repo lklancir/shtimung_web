@@ -27,7 +27,7 @@ source "$ENV_FILE"
 
 RSYNC_FLAGS=(-avz --delete
   --exclude='brand/_src'
-  --include='index.html' --include='css/***' --include='js/***'
+  --include='index.html' --include='.htaccess' --include='css/***' --include='js/***'
   --include='brand/***'
   --exclude='*')
 
