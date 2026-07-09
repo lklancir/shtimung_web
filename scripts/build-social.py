@@ -93,7 +93,7 @@ POSTS = {
         "Zagreb", f"""
         <img class="big-logo" src="{LOGO}" style="margin-bottom:80px">
         <h1>Upalili smo se<span class="amber">.</span></h1>
-        <p class="sub">Pametan dom po mjeri. Svjetlo, ambijent i automatizacije koje rade same. Od sad i ovdje.</p>
+        <p class="sub">Pametan dom po mjeri. Svjetlo, ambijent i automatizacije koje rade same. <strong>Štimung!</strong></p>
         """, center=True),
 
     # ---- 02: brand priča (carousel 3) ----
