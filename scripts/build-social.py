@@ -7,6 +7,7 @@ Fontovi se učitavaju lokalno iz brand/_src/ (bez mreže, bez FOUT-a).
 Pokretanje:  python3 scripts/build-social.py
 """
 
+import re
 import subprocess
 from pathlib import Path
 
@@ -15,7 +16,11 @@ OUT = ROOT / "social"
 TMP = OUT / "_tmp"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-W, H = 1080, 1350
+# formati: (folder, širina, visina, scale tipografije/razmaka)
+FORMATS = [
+    ("", 1080, 1350, 1.0),        # 4:5 portret — feed
+    ("square", 1080, 1080, 0.8),  # 1:1 — bez ikakvog rezanja u gridu
+]
 
 SG_TTF = (ROOT / "brand/_src/SpaceGrotesk-wght.ttf").as_uri()
 INTER_TTF = (ROOT / "brand/_src/Inter-var.ttf").as_uri()
@@ -27,7 +32,7 @@ BASE_CSS = f"""
 @font-face {{ font-family:'Inter'; src:url('{INTER_TTF}') format('truetype'); font-weight:100 900; }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{
-  width:{W}px; height:{H}px; overflow:hidden; position:relative;
+  width:__W__px; height:__H__px; overflow:hidden; position:relative;
   background:#0a0c12; color:#eef0f6; font-family:Inter, sans-serif;
   display:flex; flex-direction:column; padding:96px;
 }}
@@ -150,20 +155,29 @@ POSTS = {
 
 def main():
     TMP.mkdir(parents=True, exist_ok=True)
-    for name, html in POSTS.items():
-        src = TMP / f"{name}.html"
-        out = OUT / f"{name}.png"
-        src.write_text(html)
-        subprocess.run(
-            [CHROME, "--headless", "--disable-gpu", f"--screenshot={out}",
-             f"--window-size={W},{H}", "--hide-scrollbars",
-             "--virtual-time-budget=3000", src.resolve().as_uri()],
-            capture_output=True, check=True)
-        print("  ✓", out.relative_to(ROOT))
+    n = 0
+    for subdir, w, h, scale in FORMATS:
+        outdir = OUT / subdir if subdir else OUT
+        outdir.mkdir(exist_ok=True)
+        for name, html in POSTS.items():
+            if scale != 1.0:  # skaliraj sve px vrijednosti (tipografija, razmaci)
+                html = re.sub(r"(\d+(?:\.\d+)?)px",
+                              lambda m: f"{float(m.group(1)) * scale:.0f}px", html)
+            html = html.replace("__W__", str(w)).replace("__H__", str(h))
+            src = TMP / f"{name}.html"
+            out = outdir / f"{name}.png"
+            src.write_text(html)
+            subprocess.run(
+                [CHROME, "--headless", "--disable-gpu", f"--screenshot={out}",
+                 f"--window-size={w},{h}", "--hide-scrollbars",
+                 "--virtual-time-budget=3000", src.resolve().as_uri()],
+                capture_output=True, check=True)
+            print("  ✓", out.relative_to(ROOT))
+            n += 1
     for f in TMP.iterdir():
         f.unlink()
     TMP.rmdir()
-    print(f"\nGotovo → {OUT} ({len(POSTS)} vizuala, 1080x1350)")
+    print(f"\nGotovo → {OUT} ({n} vizuala)")
 
 
 if __name__ == "__main__":
