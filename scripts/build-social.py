@@ -18,14 +18,14 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # formati: (folder, širina, visina, scale tipografije/razmaka)
 FORMATS = [
-    ("", 1080, 1350, 1.0),        # 4:5 portret — feed
+    ("feed", 1080, 1350, 1.0),    # 4:5 portret — feed
     ("square", 1080, 1080, 0.8),  # 1:1 — bez ikakvog rezanja u gridu
 ]
 
-SG_TTF = (ROOT / "brand/_src/SpaceGrotesk-wght.ttf").as_uri()
-INTER_TTF = (ROOT / "brand/_src/Inter-var.ttf").as_uri()
-LOGO = (ROOT / "brand/logo.svg").as_uri()
-WORDMARK = (ROOT / "brand/wordmark.svg").as_uri()
+SG_TTF = (ROOT / "www/brand/_src/SpaceGrotesk-wght.ttf").as_uri()
+INTER_TTF = (ROOT / "www/brand/_src/Inter-var.ttf").as_uri()
+LOGO = (ROOT / "www/brand/logo.svg").as_uri()
+WORDMARK = (ROOT / "www/brand/wordmark.svg").as_uri()
 
 BASE_CSS = f"""
 @font-face {{ font-family:'Space Grotesk'; src:url('{SG_TTF}') format('truetype'); font-weight:300 700; }}

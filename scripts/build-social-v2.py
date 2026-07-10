@@ -13,7 +13,7 @@ SOURCE_ROOT = Path(
     os.environ.get(
         "SHTIMUNG_SOURCE_ROOT",
         PROJECT_ROOT
-        if (PROJECT_ROOT / "brand").exists()
+        if (PROJECT_ROOT / "www/brand").exists()
         else "/Users/mrcina/Dev/personal/smarthome/shtimung",
     )
 )
@@ -22,13 +22,13 @@ TMP = OUT / "_tmp"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 FORMATS = [
-    ("", 1080, 1350, 1.0),
+    ("feed", 1080, 1350, 1.0),
     ("square", 1080, 1080, 0.8),
 ]
 
-SG_TTF = (SOURCE_ROOT / "brand/_src/SpaceGrotesk-wght.ttf").as_uri()
-INTER_TTF = (SOURCE_ROOT / "brand/_src/Inter-var.ttf").as_uri()
-LOGO = (SOURCE_ROOT / "brand/logo.svg").as_uri()
+SG_TTF = (SOURCE_ROOT / "www/brand/_src/SpaceGrotesk-wght.ttf").as_uri()
+INTER_TTF = (SOURCE_ROOT / "www/brand/_src/Inter-var.ttf").as_uri()
+LOGO = (SOURCE_ROOT / "www/brand/logo.svg").as_uri()
 
 
 BASE_CSS = f"""

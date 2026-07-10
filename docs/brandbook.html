@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>shtimung brandbook</title>
-<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../www/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
 <body>
 <div class="wrap">
 
-  <img src="brand/logo.svg" alt="shtimung logo" class="intro-logo">
+  <img src="../www/brand/logo.svg" alt="shtimung logo" class="intro-logo">
   <h1>shtimung<br>brandbook <span style="color:var(--dim); font-weight:400">v1</span></h1>
   <p class="tagline">Pametan dom po mjeri. Zagreb.</p>
   <p style="margin-top:18px">Ovaj dokument definira vizualni i verbalni identitet branda shtimung: logo, boje, tipografiju, ton komunikacije i pravila primjene. Vrijedi za web, društvene mreže, ponude i sve što nosi ime shtimung.</p>
@@ -85,22 +85,22 @@
     <p>Znak se sastoji od tri elementa: <strong>krov</strong> (kvačica), <strong>slovo s</strong> (Space Grotesk Bold, vektorizirano) i <strong>svjetlo</strong> (amber točka s halo sjajem). Elementi su fiksni i njihovi međusobni odnosi se ne mijenjaju.</p>
     <div class="grid g2">
       <div>
-        <div class="logo-tile dark"><img src="brand/logo.svg" alt="logo tamna podloga"></div>
-        <div class="tile-label">Primarno, tamne podloge · <code>brand/logo.svg</code></div>
+        <div class="logo-tile dark"><img src="../www/brand/logo.svg" alt="logo tamna podloga"></div>
+        <div class="tile-label">Primarno, tamne podloge · <code>www/brand/logo.svg</code></div>
       </div>
       <div>
-        <div class="logo-tile light"><img src="brand/logo-light.svg" alt="logo svijetla podloga"></div>
-        <div class="tile-label">Svijetle podloge (tamniji amber #f59a2e) · <code>brand/logo-light.svg</code></div>
+        <div class="logo-tile light"><img src="../www/brand/logo-light.svg" alt="logo svijetla podloga"></div>
+        <div class="tile-label">Svijetle podloge (tamniji amber #f59a2e) · <code>www/brand/logo-light.svg</code></div>
       </div>
     </div>
     <div class="grid g2" style="margin-top:18px">
       <div>
-        <div class="logo-tile dark" style="min-height:110px"><img src="brand/wordmark.svg" alt="wordmark" style="width:220px"></div>
-        <div class="tile-label">Wordmark: navigacija, potpisi, dokumenti · <code>brand/wordmark.svg</code></div>
+        <div class="logo-tile dark" style="min-height:110px"><img src="../www/brand/wordmark.svg" alt="wordmark" style="width:220px"></div>
+        <div class="tile-label">Wordmark: navigacija, potpisi, dokumenti · <code>www/brand/wordmark.svg</code></div>
       </div>
       <div>
-        <div class="logo-tile dark" style="min-height:110px"><img src="brand/favicon.svg" alt="favicon" style="width:56px"></div>
-        <div class="tile-label">Favicon / app ikona · <code>brand/favicon.svg</code></div>
+        <div class="logo-tile dark" style="min-height:110px"><img src="../www/brand/favicon.svg" alt="favicon" style="width:56px"></div>
+        <div class="tile-label">Favicon / app ikona · <code>www/brand/favicon.svg</code></div>
       </div>
     </div>
 
@@ -109,7 +109,7 @@
       <div class="do">
         <h4>DA</h4>
         <ul>
-          <li>Koristi isporučene datoteke iz <code>brand/</code>, ne precrtavaj znak</li>
+          <li>Koristi isporučene datoteke iz <code>www/brand/</code>, ne precrtavaj znak</li>
           <li>Zaštitni prostor oko znaka: minimalno visina krova sa svih strana</li>
           <li>Minimalna veličina: 24 px digitalno, 8 mm tisak</li>
           <li>Animiraj svjetlo (puls, paljenje): to je predviđeno ponašanje</li>
@@ -189,7 +189,7 @@
     <h2><span class="no">06</span>Primjene</h2>
     <ul>
       <li><strong>Web:</strong> na vrhu stranice wordmark; nakon scrolla crossfade u znak. Svjetlo uvijek diše (3s ciklus).</li>
-      <li><strong>Instagram/Facebook profilna:</strong> <code>brand/avatar-1024.png</code> (tamna, znak centriran)</li>
+      <li><strong>Instagram/Facebook profilna:</strong> <code>www/brand/avatar-1024.png</code> (tamna, znak centriran)</li>
       <li><strong>Favicon:</strong> SVG + ICO + apple-touch, već povezano u <code>index.html</code></li>
       <li><strong>Potpis maila:</strong> wordmark.svg ili tekst "shtimung · pametan dom po mjeri · shtimung.hr"</li>
       <li><strong>Ponude/dokumenti:</strong> wordmark u zaglavlju, znak u podnožju; boje i fontovi po ovom dokumentu</li>
@@ -199,7 +199,7 @@
   <!-- ============ 07 DATOTEKE ============ -->
   <section>
     <h2><span class="no">07</span>Datoteke</h2>
-    <p>Sve u <code>brand/</code>. Masteri su SVG (vektor, beskonačno skalabilan); PNG-ovi su izvedeni. Regeneracija: <code>python3 scripts/build-brand.py</code>.</p>
+    <p>Sve u <code>www/brand/</code>. Masteri su SVG (vektor, beskonačno skalabilan); PNG-ovi su izvedeni. Regeneracija: <code>python3 scripts/build-brand.py</code>.</p>
     <table>
       <tr><th>Datoteka</th><th>Namjena</th></tr>
       <tr><td>logo.svg / logo-1024.png</td><td>Znak za tamne podloge (transparentan)</td></tr>

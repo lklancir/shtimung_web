@@ -12,7 +12,7 @@ SOURCE_ROOT = Path(
     os.environ.get(
         "SHTIMUNG_SOURCE_ROOT",
         PROJECT_ROOT
-        if (PROJECT_ROOT / "brand").exists()
+        if (PROJECT_ROOT / "www/brand").exists()
         else "/Users/mrcina/Dev/personal/smarthome/shtimung",
     )
 )
@@ -20,7 +20,7 @@ OUT = Path(
     os.environ.get(
         "SHTIMUNG_YOUTUBE_OUT",
         PROJECT_ROOT / "output/youtube"
-        if not (PROJECT_ROOT / "brand").exists()
+        if not (PROJECT_ROOT / "www/brand").exists()
         else SOURCE_ROOT / "social/youtube",
     )
 )
@@ -31,8 +31,8 @@ HEIGHT = 1440
 SAFE_WIDTH = 1546
 SAFE_HEIGHT = 423
 
-SG_TTF = (SOURCE_ROOT / "brand/_src/SpaceGrotesk-wght.ttf").as_uri()
-INTER_TTF = (SOURCE_ROOT / "brand/_src/Inter-var.ttf").as_uri()
+SG_TTF = (SOURCE_ROOT / "www/brand/_src/SpaceGrotesk-wght.ttf").as_uri()
+INTER_TTF = (SOURCE_ROOT / "www/brand/_src/Inter-var.ttf").as_uri()
 WORDMARK = (SOURCE_ROOT / "brand/wordmark.svg").as_uri()
 
 

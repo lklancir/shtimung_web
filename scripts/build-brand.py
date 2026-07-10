@@ -23,7 +23,7 @@ from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
 
 ROOT = Path(__file__).resolve().parent.parent
-BRAND = ROOT / "brand"
+BRAND = ROOT / "www" / "brand"
 SRC = BRAND / "_src"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 FONT_URL = "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf"
