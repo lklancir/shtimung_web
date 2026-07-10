@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # što se shipa (isti skup kao u deploy.sh)
 INCLUDE = ["index.html", ".htaccess"]
-INCLUDE_DIRS = ["css", "js", "brand"]
+INCLUDE_DIRS = ["css", "js", "brand", "nashtimaj"]
 EXCLUDE_PARTS = {"_src", ".DS_Store"}
 
 

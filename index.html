@@ -6,7 +6,7 @@
         <title>shtimung | Pametan dom po mjeri, Zagreb</title>
         <meta
             name="description"
-            content="Dizajn i instalacija pametnog doma u Zagrebu: Home Assistant, ambijentalna LED rasvjeta, automatizacije. Bez vendor lock-ina, s dokumentacijom."
+            content="Dizajn i instalacija pametnog doma u Zagrebu: Home Assistant, ambijentalna LED rasvjeta, automatizacije, sigurna kućna mreža i self-hosted mediji. Bez vendor lock-ina, tvoji podaci ostaju doma."
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,13 +15,27 @@
             rel="stylesheet"
         />
         <link rel="icon" href="brand/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="brand/favicon-32.png" type="image/png" sizes="32x32" />
+        <link
+            rel="icon"
+            href="brand/favicon-32.png"
+            type="image/png"
+            sizes="32x32"
+        />
         <link rel="shortcut icon" href="brand/favicon.ico" />
         <link rel="apple-touch-icon" href="brand/apple-touch-icon.png" />
         <meta name="theme-color" content="#0a0c12" />
-        <meta property="og:title" content="shtimung | Pametan dom po mjeri, Zagreb" />
-        <meta property="og:description" content="Dizajn i instalacija pametnog doma u Zagrebu: Home Assistant, ambijentalna LED rasvjeta, automatizacije." />
-        <meta property="og:image" content="https://shtimung.hr/brand/avatar-1024.png" />
+        <meta
+            property="og:title"
+            content="shtimung | Pametan dom po mjeri, Zagreb"
+        />
+        <meta
+            property="og:description"
+            content="Dizajn i instalacija pametnog doma u Zagrebu: Home Assistant, ambijentalna LED rasvjeta, automatizacije, sigurna kućna mreža i self-hosted mediji."
+        />
+        <meta
+            property="og:image"
+            content="https://shtimung.hr/brand/avatar-1024.png"
+        />
         <meta property="og:url" content="https://shtimung.hr" />
         <link rel="stylesheet" href="css/style.css" />
     </head>
@@ -30,7 +44,9 @@
             <a href="#" class="brand" aria-label="shtimung">
                 <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
                     <path class="lm-roof" d="M 30 38 L 44 26 L 58 38" />
-                    <text class="lm-s" x="44" y="72" text-anchor="middle">s</text>
+                    <text class="lm-s" x="44" y="72" text-anchor="middle">
+                        s
+                    </text>
                     <circle class="lm-halo" cx="68" cy="68" r="11" />
                     <circle class="lm-dot" cx="68" cy="68" r="6" />
                 </svg>
@@ -46,12 +62,12 @@
             <canvas id="hero-shader" aria-hidden="true"></canvas>
             <div class="hero-bg" aria-hidden="true"></div>
             <div class="hero-content">
-                <p class="eyebrow reveal">Zagreb · Hrvatska</p>
+                <p class="eyebrow reveal">ME · SO · SMART 💡</p>
                 <h1 class="reveal">Dom koji te<br /><em>razumije.</em></h1>
                 <p class="lead reveal">
-                    Dizajniramo i instaliramo pametne domove: svjetlo, ambijent
-                    i automatizacije koje rade same. Estetika i funkcionalnost,
-                    bez kompromisa. Čisti štimung.
+                    Dizajniramo i instaliramo pametne domove uz svjetlo,
+                    ambijent i automatizacije koje rade same. Estetika i
+                    funkcionalnost, bez kompromisa. Čisti štimung.
                 </p>
                 <div class="hero-cta reveal">
                     <a href="#kontakt" class="btn btn-primary"
@@ -588,8 +604,7 @@
                                 <h3>Dolaziš doma</h3>
                                 <p>
                                     Senzor te prepozna. Hodnik se pali, grijanje
-                                    je već namjestilo temperaturu. Zna kad
-                                    stižeš.
+                                    je već namjestilo temperaturu. Uštimano.
                                 </p>
                             </li>
                             <li class="step" data-goto="2">
@@ -636,8 +651,8 @@
                         <h3>Konzultacija & dizajn</h3>
                         <p>
                             Obilazak prostora, analiza navika i dizajn sustava
-                            po mjeri: protokoli, uređaji, budžet. Dobivaš plan,
-                            ne prodajni katalog.
+                            po mjeri: želje, uređaji, budžet. Dobivaš plan i
+                            koncept.
                         </p>
                     </article>
                     <article class="card reveal">
@@ -659,10 +674,29 @@
                         </p>
                     </article>
                     <article class="card reveal">
+                        <div class="card-icon">⌗</div>
+                        <h3>Kućna mreža i sigurnost</h3>
+                        <p>
+                            Mreža složena po pravilima struke: odvojeni segmenti
+                            za pametne uređaje, goste i tebe, firewall i siguran
+                            pristup izvana. Temelj na kojem sve ostalo stoji.
+                        </p>
+                    </article>
+                    <article class="card reveal">
+                        <div class="card-icon">◈</div>
+                        <h3>Self-hosted mediji</h3>
+                        <p>
+                            Filmovi, glazba i obiteljske fotografije na tvom
+                            hardveru: vlastiti streaming, automatski backup i
+                            nula mjesečnih pretplata. Tvoja medijateka, tvoja
+                            pravila.
+                        </p>
+                    </article>
+                    <article class="card reveal">
                         <div class="card-icon">↻</div>
                         <h3>Održavanje & podrška</h3>
                         <p>
-                            Updateovi, backup, nadzor i dorade automatizacija.
+                            Ažuriranja, backup, nadzor i dorade automatizacija.
                             Tvoj dom ostaje pametan i za pet godina, bez da
                             razmišljaš o tome.
                         </p>
@@ -691,8 +725,16 @@
                         <h3>IT-grade izvedba</h3>
                         <p>
                             Iza instalacije stoji 10+ godina iskustva u IT
-                            arhitekturi: backup, siguran udaljeni pristup,
-                            odvojena mreža za uređaje.
+                            arhitekturi: backup, nadzor sustava i izvedba koja
+                            radi i za pet godina, ne samo na primopredaji.
+                        </p>
+                    </div>
+                    <div class="why-item reveal">
+                        <h3>Tvoji podaci ostaju doma</h3>
+                        <p>
+                            Kamere, senzori i navike tvoje obitelji ne putuju u
+                            tuđi oblak. Sve radi lokalno, i kad internet padne.
+                            Privatnost ti nije opcija, nego polazište.
                         </p>
                     </div>
                     <div class="why-item reveal">
@@ -724,7 +766,7 @@
                         <h3>Razgovor</h3>
                         <p>
                             Besplatan uvodni poziv: što želiš, što te muči,
-                            koliki je okvir.
+                            koliki bi bio opseg i budžet.
                         </p>
                     </div>
                     <div class="process-step reveal">
@@ -732,15 +774,14 @@
                         <h3>Dizajn sustava</h3>
                         <p>
                             Obilazak i konkretan prijedlog: uređaji, scene,
-                            budžet, rokovi.
+                            cijene, rokovi.
                         </p>
                     </div>
                     <div class="process-step reveal">
                         <span>3</span>
                         <h3>Instalacija & primopredaja</h3>
                         <p>
-                            Ugradnja, konfiguracija, edukacija ukućana i
-                            dokumentacija.
+                            Ugradnja, konfiguracija, edukacija i dokumentacija.
                         </p>
                     </div>
                 </div>

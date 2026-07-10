@@ -1,0 +1,540 @@
+/* ============================================================
+   naštimaj — interaktivni konfigurator
+   Nadograđuje ../css/style.css (root varijable, nav, btn, footer)
+   ============================================================ */
+
+.nsh-body { background: var(--bg); }
+
+/* ---------- uvod ---------- */
+.nsh-hero {
+  position: relative;
+  text-align: center;
+  padding: 150px 24px 30px;
+}
+.nsh-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 0%, rgba(255, 180, 92, 0.07), transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 20%, rgba(92, 214, 255, 0.05), transparent 70%);
+  pointer-events: none;
+}
+.nsh-hero .lead { margin: 1.4rem auto 0; }
+.nsh-hero h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); }
+
+/* ---------- app layout ---------- */
+.nsh-app {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 36px;
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 32px 90px;
+}
+
+.nsh-scene-wrap {
+  position: sticky;
+  top: 70px;
+}
+.nsh-tilt {
+  transform: perspective(1400px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+.nsh-scene-wrap svg { width: 100%; height: auto; display: block; }
+
+.nsh-hint {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+  transition: opacity 0.6s ease;
+}
+.nsh-hint.skriven { opacity: 0; }
+.nsh-hint .dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+  animation: dot-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   IZOMETRIJSKA SCENA — plohe
+   ============================================================ */
+.iso-pod { fill: #0d1018; stroke: #2c3245; stroke-width: 2; }
+
+.iso-floor {
+  fill: #10141f;
+  stroke: #262d40;
+  stroke-width: 1.5;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: fill 0.35s ease, stroke 0.35s ease;
+}
+.room-g:hover .iso-floor { fill: #161c2b; }
+.room-g.odabrana .iso-floor { fill: #181f31; }
+
+/* kutije: top / desna / lijeva ploha */
+.ibox { pointer-events: none; }
+.ibox polygon { stroke: #333b52; stroke-width: 1.1; }
+.ibox .f-top { fill: #232a3c; }
+.ibox .f-right { fill: #1a2030; }
+.ibox .f-left { fill: #151a26; }
+.ibox.light .f-top { fill: #2d354a; }
+.ibox.light .f-right { fill: #222939; }
+.ibox.light .f-left { fill: #1a2030; }
+.ibox.dark .f-top { fill: #191f2e; }
+.ibox.dark .f-right { fill: #141926; }
+.ibox.dark .f-left { fill: #10141f; }
+
+/* zidovi */
+.iso-zid polygon { stroke: #3a4157; stroke-width: 1.4; }
+.iso-zid .f-top { fill: #1b2131; }
+.iso-zid .f-right { fill: #141a29; }
+.iso-zid .f-left { fill: #10151f; }
+.iso-zid.niski polygon { stroke: #333b52; }
+
+/* prozor, vrata */
+.iso-window { fill: #131a28; stroke: #333b52; stroke-width: 1.5; }
+.iso-window-bar { stroke: #333b52; stroke-width: 1.5; }
+.iso-door { fill: #262e42; stroke: #3a4157; stroke-width: 1.5; }
+
+/* linije (nogice lampi, kablovi) */
+.iso-line { stroke: #333b52; stroke-width: 2.2; fill: none; }
+.iso-shade { fill: #1c2230; stroke: #333b52; stroke-width: 1.3; }
+
+/* TV */
+.iso-tv-screen { fill: #0e1220; stroke: #333b52; stroke-width: 1; transition: fill 0.8s ease; }
+.iso-tv-screen.on { fill: #1c2f52; }
+.iso-tv-ambient { opacity: 0; transition: opacity 0.9s ease; }
+.iso-tv-ambient.on { opacity: 1; }
+
+/* hub (osnova sustava) — uvijek diše */
+.hub-dot {
+  fill: var(--cyan);
+  animation: dot-pulse-cyan 3s ease-in-out infinite;
+}
+@keyframes dot-pulse-cyan {
+  0%, 100% { filter: drop-shadow(0 0 2px var(--cyan)); opacity: 0.75; }
+  50% { filter: drop-shadow(0 0 7px var(--cyan)); opacity: 1; }
+}
+
+/* sigurnost: senzori na prozorima/vratima */
+.sec-dot {
+  fill: #2a3145;
+  transition: fill 0.5s ease, filter 0.5s ease;
+}
+.sec-dot.on {
+  fill: var(--cyan);
+  filter: drop-shadow(0 0 6px var(--cyan));
+}
+.sec-lock { opacity: 0; transition: opacity 0.5s ease; }
+.sec-lock.on { opacity: 1; }
+.sec-lock path, .sec-lock rect {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* termostat pill po sobi */
+.thermo-pill { opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }
+.thermo-pill.on { opacity: 1; }
+.thermo-pill rect {
+  fill: #10141f;
+  stroke: var(--amber);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px var(--amber-glow));
+}
+.thermo-pill text {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+/* labela sobe + badge broja odabranih */
+.iso-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  fill: #4a5268;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: fill 0.5s ease;
+}
+.room-g:hover .iso-label { fill: #6b7490; }
+.room-g.odabrana .iso-label { fill: var(--amber); }
+.iso-badge circle { fill: var(--amber); }
+.iso-badge text {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  fill: #17120a;
+}
+.iso-badge { opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+.iso-badge.on { opacity: 1; }
+
+/* dim neaktivnih soba dok je jedna odabrana */
+.room-g { transition: opacity 0.5s ease; }
+.room-g.dim { opacity: 0.45; }
+
+/* hint točka na sceni */
+.hint-dot {
+  fill: var(--amber);
+  animation: hint-ping 2.4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes hint-ping {
+  0% { opacity: 0.9; r: 5; }
+  70% { opacity: 0; r: 18; }
+  100% { opacity: 0; r: 18; }
+}
+
+/* ============================================================
+   PANEL
+   ============================================================ */
+.nsh-panel {
+  position: sticky;
+  top: 80px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.nsh-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.nsh-chip {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.nsh-chip:hover { color: var(--text); border-color: rgba(255, 180, 92, 0.4); }
+.nsh-chip.active {
+  color: var(--amber);
+  border-color: rgba(255, 180, 92, 0.55);
+  background: rgba(255, 180, 92, 0.07);
+}
+.nsh-chip b {
+  font-weight: 600;
+  margin-left: 5px;
+  color: var(--amber);
+}
+
+.nsh-moduli { display: flex; flex-direction: column; min-height: 240px; }
+.nsh-moduli-uvod {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  padding: 14px 4px;
+}
+
+.nsh-mod {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+.nsh-mod:last-child { border-bottom: none; }
+.nsh-mod-info { flex: 1; min-width: 0; }
+.nsh-mod-info h4 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.nsh-mod-info p { color: var(--text-dim); font-size: 0.82rem; line-height: 1.45; }
+.nsh-mod-cijena {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.nsh-mod.ukljucen .nsh-mod-cijena { color: var(--text); }
+
+/* switch */
+.nsh-switch {
+  position: relative;
+  flex: none;
+  width: 42px; height: 24px;
+  border-radius: 999px;
+  background: #1c2230;
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.nsh-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #4a5268;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+}
+.nsh-mod input { position: absolute; opacity: 0; pointer-events: none; }
+.nsh-mod.ukljucen .nsh-switch {
+  background: rgba(255, 180, 92, 0.18);
+  border-color: var(--amber);
+  box-shadow: 0 0 12px var(--amber-glow);
+}
+.nsh-mod.ukljucen .nsh-switch::after {
+  transform: translateX(18px);
+  background: var(--amber);
+}
+.nsh-mod.zakljucan { cursor: default; }
+.nsh-mod.zakljucan .nsh-switch { opacity: 0.75; }
+.nsh-mod-uvijek {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* brojač */
+.nsh-total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.nsh-total-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.nsh-total-val {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+.nsh-total-val.pop { animation: total-pop 0.45s ease; }
+@keyframes total-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.06); color: var(--amber); }
+  100% { transform: scale(1); }
+}
+.nsh-total-note { font-size: 0.75rem; color: var(--text-dim); }
+.nsh-panel-cta { text-align: center; }
+
+/* ============================================================
+   SAŽETAK
+   ============================================================ */
+.nsh-sazetak {
+  position: relative;
+  padding: 120px 24px 140px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.nsh-sazetak-glow {
+  position: absolute;
+  left: 50%; bottom: -35%;
+  width: 900px; height: 500px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(255, 180, 92, 0.13), transparent 65%);
+  pointer-events: none;
+}
+.nsh-sazetak-inner { position: relative; max-width: 680px; margin: 0 auto; }
+
+.nsh-prazno {
+  margin-top: 30px;
+  padding: 26px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--text-dim);
+}
+
+.nsh-sz-lista { margin-top: 36px; display: flex; flex-direction: column; gap: 26px; }
+.nsh-sz-blok h4 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.nsh-sz-red {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.95rem;
+}
+.nsh-sz-red span:last-child { color: var(--text-dim); white-space: nowrap; }
+
+.nsh-sz-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 30px;
+  padding: 18px 22px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 180, 92, 0.3);
+  border-radius: 14px;
+}
+.nsh-sz-total span {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.nsh-sz-total strong {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.nsh-sz-note { color: var(--text-dim); font-size: 0.88rem; margin-top: 14px; }
+
+/* izbor CTA */
+.nsh-cta-izbor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 40px;
+}
+.nsh-izbor {
+  font-family: var(--font-body);
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.nsh-izbor:hover { transform: translateY(-2px); }
+.nsh-izbor strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.nsh-izbor span { color: var(--text-dim); font-size: 0.83rem; line-height: 1.4; }
+.nsh-izbor.active {
+  border-color: var(--amber);
+  background: rgba(255, 180, 92, 0.06);
+  box-shadow: 0 0 20px rgba(255, 180, 92, 0.12);
+}
+
+/* forma */
+#nsh-forma { margin-top: 22px; }
+.nsh-forma-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.nsh-forma-grid label { display: flex; flex-direction: column; gap: 6px; }
+.nsh-forma-grid .nsh-full { grid-column: 1 / -1; }
+.nsh-forma-grid span {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+.nsh-forma-grid span em { font-style: normal; opacity: 0.7; }
+.nsh-forma-grid input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nsh-forma-grid input:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(255, 180, 92, 0.12);
+}
+/* honeypot van ekrana */
+.nsh-web { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.nsh-submit { margin-top: 20px; width: 100%; border: none; cursor: pointer; }
+.nsh-gdpr { color: var(--text-dim); font-size: 0.78rem; margin-top: 14px; text-align: center; }
+
+.nsh-status {
+  margin-top: 26px;
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(92, 255, 176, 0.35);
+  background: rgba(92, 255, 176, 0.05);
+  font-size: 0.98rem;
+}
+.nsh-status.greska {
+  border-color: rgba(255, 92, 138, 0.4);
+  background: rgba(255, 92, 138, 0.05);
+}
+.nsh-status a { color: var(--amber); }
+
+/* ============================================================
+   MOBILNI BROJAČ
+   ============================================================ */
+.nsh-mbar {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(10, 12, 18, 0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+}
+.nsh-mbar > div { display: flex; flex-direction: column; }
+.nsh-mbar strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 980px) {
+  .nsh-app { grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
+  .nsh-scene-wrap { position: static; }
+  .nsh-panel { position: static; }
+  .nsh-panel-cta { display: none; }
+  .nsh-mbar { display: flex; }
+  .nsh-sazetak { padding-bottom: 180px; }
+  .nsh-cta-izbor { grid-template-columns: 1fr; }
+  .nsh-forma-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nsh-tilt { transform: none !important; }
+  .hint-dot, .hub-dot { animation: none; }
+  .nsh-total-val.pop { animation: none; }
+}

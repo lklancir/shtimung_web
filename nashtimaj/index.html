@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="hr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>naštimaj svoj dom | shtimung</title>
+        <meta
+            name="description"
+            content="Klikni sobu, upali što te zanima i odmah vidiš okvirni budžet za svoj pametni dom. Interaktivni konfigurator, bez obaveza."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="../brand/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="../brand/apple-touch-icon.png" />
+        <meta name="theme-color" content="#0a0c12" />
+        <!-- soft-launch: dostupno samo preko direktnog linka -->
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="naštimaj svoj dom | shtimung" />
+        <meta property="og:description" content="Klikni sobu, upali što te zanima i odmah vidiš okvirni budžet za svoj pametni dom." />
+        <meta property="og:image" content="https://shtimung.hr/brand/avatar-1024.png" />
+        <meta property="og:url" content="https://shtimung.hr/nashtimaj/" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="css/nashtimaj.css" />
+    </head>
+    <body class="nsh-body">
+        <nav class="nav">
+            <a href="/" class="brand" aria-label="shtimung">
+                <span class="wordmark"
+                    >shtim<span>ung</span><i class="dot"></i
+                ></span>
+            </a>
+            <a href="/" class="btn btn-small">natrag na shtimung</a>
+        </nav>
+
+        <!-- ============ UVOD ============ -->
+        <header class="nsh-hero">
+            <div class="nsh-hero-bg" aria-hidden="true"></div>
+            <p class="eyebrow reveal">naštimaj</p>
+            <h1 class="reveal">Naštimaj <em>svoj</em> dom.</h1>
+            <p class="lead reveal">
+                Klikni sobu, upali što te zanima i odmah vidiš okvirni
+                budžet. Bez obaveza i bez ostavljanja maila, dok sam ne
+                poželiš.
+            </p>
+        </header>
+
+        <!-- ============ APP ============ -->
+        <main class="nsh-app">
+            <div class="nsh-scene-wrap" id="scene-wrap">
+                <div class="nsh-tilt" id="iso-tilt">
+                    <svg
+                        id="iso-scena"
+                        viewBox="0 0 1150 860"
+                        xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="Izometrijski prikaz stana: klikni sobu da odabereš što želiš automatizirati"
+                    ></svg>
+                </div>
+                <p class="nsh-hint" id="nsh-hint">
+                    klikni sobu i upali je <i class="dot"></i>
+                </p>
+            </div>
+
+            <aside class="nsh-panel">
+                <div class="nsh-chips" id="nsh-chips"></div>
+                <div class="nsh-moduli" id="nsh-moduli"></div>
+                <div class="nsh-total">
+                    <span class="nsh-total-label">tvoj shtimung</span>
+                    <strong class="nsh-total-val" id="nsh-total-val">0 €</strong>
+                    <span class="nsh-total-note">okvirno, s opremom i ugradnjom</span>
+                </div>
+                <a class="btn btn-primary nsh-panel-cta" href="#sazetak"
+                    >Pogledaj svoj shtimung ↓</a
+                >
+            </aside>
+        </main>
+
+        <!-- ============ SAŽETAK ============ -->
+        <section class="nsh-sazetak" id="sazetak">
+            <div class="nsh-sazetak-glow" aria-hidden="true"></div>
+            <div class="nsh-sazetak-inner">
+                <p class="eyebrow">tvoj shtimung</p>
+                <h2 id="sazetak-naslov">Ovako izgleda tvoj shtimung.</h2>
+
+                <div id="sazetak-prazno" class="nsh-prazno">
+                    <p>
+                        Još nisi ništa upalio. Vrati se gore, klikni sobu i
+                        naštimaj je po svom, ovdje te čeka sažetak.
+                    </p>
+                </div>
+
+                <div id="sazetak-sadrzaj" hidden>
+                    <div class="nsh-sz-lista" id="sazetak-lista"></div>
+                    <div class="nsh-sz-total">
+                        <span>okvirno ukupno</span>
+                        <strong id="sazetak-total">0 €</strong>
+                    </div>
+                    <p class="nsh-sz-note">
+                        Ovo je iskrena okvirna procjena s opremom, ugradnjom i
+                        konfiguracijom. Točan iznos ovisi o tvom prostoru, zato
+                        je sljedeći korak razgovor.
+                    </p>
+
+                    <div class="nsh-cta-izbor" id="cta-izbor">
+                        <button type="button" class="nsh-izbor active" data-zelja="mail">
+                            <strong>Pošalji mi prijedlog</strong>
+                            <span>detaljan prijedlog sustava na tvoj mail</span>
+                        </button>
+                        <button type="button" class="nsh-izbor" data-zelja="showroom">
+                            <strong>Želim vidjeti uživo</strong>
+                            <span>sve ovo radi u našem showroomu u Zagrebu</span>
+                        </button>
+                    </div>
+
+                    <form id="nsh-forma" novalidate>
+                        <div class="nsh-forma-grid">
+                            <label>
+                                <span>Ime</span>
+                                <input type="text" name="ime" autocomplete="name" required maxlength="100" />
+                            </label>
+                            <label>
+                                <span>Mail</span>
+                                <input type="email" name="email" autocomplete="email" required maxlength="200" />
+                            </label>
+                            <label class="nsh-full">
+                                <span>Telefon <em>(nije obavezno)</em></span>
+                                <input type="tel" name="telefon" autocomplete="tel" maxlength="40" />
+                            </label>
+                            <!-- honeypot: ljudi ovo ne vide i ne diraju -->
+                            <label class="nsh-web" aria-hidden="true">
+                                <span>Web</span>
+                                <input type="text" name="web" tabindex="-1" autocomplete="off" />
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-big nsh-submit" id="nsh-submit">
+                            Pošalji mi prijedlog
+                        </button>
+                        <p class="nsh-gdpr">
+                            Slanjem pristaješ da te kontaktiramo oko ovog upita.
+                            Tvoje podatke ne dijelimo ni s kim i brišemo ih na
+                            tvoj zahtjev.
+                        </p>
+                    </form>
+                    <div class="nsh-status" id="nsh-status" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MOBILNI BROJAČ ============ -->
+        <div class="nsh-mbar" id="nsh-mbar">
+            <div>
+                <span class="nsh-total-label">tvoj shtimung</span>
+                <strong id="nsh-mbar-val">0 €</strong>
+            </div>
+            <a class="btn btn-primary" href="#sazetak">Sažetak</a>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <span class="wordmark"
+                    >shtim<span>ung</span><i class="dot"></i
+                ></span>
+                <span>Zagreb, Hrvatska</span>
+            </div>
+        </footer>
+
+        <script src="js/nashtimaj.js"></script>
+    </body>
+</html>
